@@ -164,3 +164,8 @@ if __name__ == '__main__':
                 games.append(game)
                 game.start()
                 tmp_players = []
+            for game in games:
+                if not game.is_alive():
+                    # get results from thread
+                    game.handled = True
+            games = [game for game in games if not game.handled]
