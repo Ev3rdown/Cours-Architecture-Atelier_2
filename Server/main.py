@@ -92,6 +92,15 @@ class Game(Thread):
         else:
             self._turn=1
 
+    def __convert_case(self,val):
+        if val==1:
+            return "X"
+        elif val==2:
+            return "O"
+        else:
+            return str(val)
+
+
     # create a render of the grid
     # "-----------"
     # "|  |   |  |"
@@ -101,7 +110,7 @@ class Game(Thread):
     def __drawGrid(self):
         grille = "-------"+"\n"
         for i in range(0,3):
-            grille += "|"+str(self._grille[i][0])+"|"+str(self._grille[i][1])+"|"+str(self._grille[i][2])+"|\n"
+            grille += "|"+self.__convert_case(self._grille[i][0])+"|"+self.__convert_case(self._grille[i][1])+"|"+self.__convert_case(self._grille[i][2])+"|\n"
             grille += "-------\n"
         return grille
 
